@@ -63,9 +63,6 @@ function Login() {
           <Link to="/ludo">
             <button type="button">Go to Ludo Game</button>
           </Link>
-           {/* <Link to="/StudentForm">
-            <button type="button">Go to Add Student</button>
-          </Link> */}
           <Link to="/components/Menu">
             <button type="button">Go to Menu</button>
           </Link>
