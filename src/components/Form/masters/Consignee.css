@@ -1,0 +1,78 @@
+body {
+  background: #eaf4f8;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background: #ffffff;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  border-radius: 4px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 7px;
+  border: 1px solid #9bb7c6;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.save {
+  background: #4caf50;
+}
+
+.modify {
+  background: #81c784;
+}
+
+.delete {
+  background: #e57373;
+}
+
+.clear {
+  background: #64b5f6;
+}

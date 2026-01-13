@@ -1,67 +1,62 @@
-import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import menuData from "../menuData";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Menu.css";
+import Header from "./Header";
 
 const Menu = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-  const navigate = useNavigate("/");
+  const [menuData, setMenuData] = useState([]);
+  const [openMenuId, setOpenMenuId] = useState(null);
 
-  const toggleMenu = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  useEffect(() => {
+    fetch("https://localhost:44364/api/Menu/GetMenus")
+      .then((res) => res.json())
+      .then((data) => setMenuData(data));
+  }, []);
 
-  const logout = () => {
-    localStorage.removeItem("isLogin");
-    navigate("/");
+  const handleParentClick = (menuId) => {
+    setOpenMenuId(openMenuId === menuId ? null : menuId);
   };
 
   return (
+    <>
+    <Header></Header>
+     <aside className="sidebar">
+      <div className="content"><h2>ERP system</h2></div>
+    
     <div className="sidebar">
-      <div className="sidebar-header">My New ERP</div>
-
-      <div className="menu-list">
-        {menuData.map((menu, index) => (
-          <div key={index}>
-            {/* Parent Menu */}
+      <ul className="menu-list">
+        {menuData.map((menu) => (
+          <li key={menu.menuId} className="menu-item">
+            
+            {/* Parent */}
             <div
-              className="menu-item"
-              onClick={() => toggleMenu(index)}
+              className="menu-title"
+              onClick={() => handleParentClick(menu.menuId)}
             >
-              {menu.title}
+              {menu.menuName}
               <span className="arrow">
-                {openIndex === index ? "▼" : "▶"}
+                {openMenuId === menu.menuId ? "▼" : "▶"}
               </span>
             </div>
 
-            {/* Child Menu */}
-            {openIndex === index && (
-              <div className="submenu">
-                {menu.children.map((child, i) => (
-                  <NavLink
-                    key={i}
-                    to={`../components/Form${child.path}`}
-                    className={({ isActive }) =>
-                      isActive
-                        ? "submenu-item active"
-                        : "submenu-item"
-                    }
-                  >
-                    {child.name}
-                  </NavLink>
+            {/* Child */}
+            {menu.children && openMenuId === menu.menuId && (
+              <ul className="submenu">
+                {menu.children.map((child) => (
+                  <li key={child.menuId} className="submenu-item">
+                    <NavLink to={child.url}  className="menu-link">
+                      {child.menuName}
+                    </NavLink>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
-          </div>
+          </li>
         ))}
-      </div>
-
-      <div className="sidebar-footer">
-        <button className="logout-btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
+      </ul>
     </div>
+     </aside>
+    </>
   );
 };
 

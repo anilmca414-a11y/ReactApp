@@ -54,3 +54,8 @@ color:blue;
   padding: 0;
   margin: 0;
 }
+.content {
+  margin-left: 240px;  /* sidebar width */
+  margin-top: 60px;    /* header height */
+  /*padding: 20px;*/
+}

@@ -1,0 +1,56 @@
+.header {
+  height: 60px;
+  width: 100%;
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Left side */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.app-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Right side */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  font-size: 14px;
+}
+
+
+.logout-btn {
+  padding: 6px 12px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 
@@ -25,7 +25,8 @@ function Login() {
 
       if (data.token) {
         localStorage.setItem("jwtToken", data.token);
-      navigate("/components/Menu");
+      //navigate("/components/Menu");
+      navigate("/Division");
         //alert("Login successful");
       } else {
         alert(data.message || "Invalid login");
@@ -60,12 +61,15 @@ function Login() {
 
           <button type="submit">Login</button>
 
-          <Link to="/ludo">
+          {/* <Link to="/ludo">
             <button type="button">Go to Ludo Game</button>
-          </Link>
-          <Link to="/components/Menu">
+          </Link> */}
+          {/* <Link to="/components/Menu">
             <button type="button">Go to Menu</button>
-          </Link>
+          </Link> */}
+            {/* <Link to="/components/Form/masters/Shipper">
+            <button type="button">Go to Shipper</button>
+          </Link> */}
         </form>
       </div>
     </div>
