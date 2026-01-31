@@ -16,6 +16,7 @@ function App() {
   const [search, setSearch] = useState("");
   return (
     <>
+    {/* <div className="text-red-500 text-xl">Tailwind Working</div>  */}
     <BrowserRouter>
       <Routes>
         <Route path="/components/Header" element={<Header />} />

@@ -1,47 +1,80 @@
 .container {
-  width: 600px;
-  margin: 40px auto;
+  max-width: 1100px;
+  margin: 30px auto;
   font-family: Arial, sans-serif;
 }
 
 h2 {
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   margin-bottom: 20px;
+  color: #333;
 }
 
-input, textarea {
+/* Form */
+.shipper-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+}
+
+.shipper-form input,
+.shipper-form select,
+.shipper-form textarea {
   padding: 8px;
-  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-button {
-  background-color: #1976d2;
-  color: white;
-  border: none;
+.shipper-form textarea {
+  grid-column: span 3;
+  resize: none;
+}
+
+.shipper-form button {
+  grid-column: span 3;
   padding: 10px;
+  background: #007bff;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #125aa0;
+.shipper-form button:hover {
+  background: #0056b3;
 }
 
-table {
+/* Table */
+.shipper-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-th, td {
-  border: 1px solid #ccc;
+.shipper-table th,
+.shipper-table td {
+  border: 1px solid #ddd;
   padding: 8px;
 }
 
-th {
-  background-color: #f4f4f4;
+.shipper-table th {
+  background: #007bff;
+  color: white;
+}
+
+.shipper-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.kyc-ok {
+  color: green;
+  font-weight: bold;
+}
+
+.kyc-pending {
+  color: orange;
+  font-weight: bold;
 }
