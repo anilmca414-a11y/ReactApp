@@ -1,90 +1,60 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AutoSuggestInput from "./AutoSuggestInput";
 import "./Division.css";
 
 const Division = () => {
   const navigate = useNavigate();
-  const [branch, setBranch] = useState("MUMBAI");
-  const [division, setDivision] = useState("Export Sea");
-  const [financialYear, setFinancialYear] = useState("2025-26");
+
+  const [branch, setBranch] = useState("");
+  const [financialYear, setFinancialYear] = useState("");
+  const [division, setDivision] = useState("Export Air");
 
   const handleSubmit = () => {
-    const data = {
-      branch,
-      division,
-      financialYear,
-    };
-
-    console.log("Submitted Data:", data);
+    console.log({ branch, division, financialYear });
     navigate("/components/Menu");
-    //alert("Selection Saved Successfully!");
   };
 
   return (
-    <div className="dashboard-container">
-      <div className="selection-card">
-        <h3>Select Branch</h3>
-        <input
-          type="text"
+    <div className="page">
+      <div className="card">
+        <h2>Division Selection</h2>
+
+        <AutoSuggestInput
+          label="Branch"
           value={branch}
-          onChange={(e) => setBranch(e.target.value)}
+          onChange={setBranch}
+          apiUrl="https://localhost:44364/api/autosuggest/office"
+          displayKey="name"
+          placeholder="Type branch name"
         />
 
-        <div className="radio-section">
-          <div>
-            <label>
+        <div className="radio-grid">
+          {["Export Air", "Export Sea", "Import Air", "Import Sea"].map((d) => (
+            <label key={d}>
               <input
                 type="radio"
-                value="Export Air"
-                checked={division === "Export Air"}
+                value={d}
+                checked={division === d}
                 onChange={(e) => setDivision(e.target.value)}
               />
-              Export Air
+              {d}
             </label>
-
-            <label>
-              <input
-                type="radio"
-                value="Export Sea"
-                checked={division === "Export Sea"}
-                onChange={(e) => setDivision(e.target.value)}
-              />
-              Export Sea
-            </label>
-          </div>
-
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="Import Air"
-                checked={division === "Import Air"}
-                onChange={(e) => setDivision(e.target.value)}
-              />
-              Import Air
-            </label>
-
-            <label>
-              <input
-                type="radio"
-                value="Import Sea"
-                checked={division === "Import Sea"}
-                onChange={(e) => setDivision(e.target.value)}
-              />
-              Import Sea
-            </label>
-          </div>
+          ))}
         </div>
 
-        <h3>Select Financial Year</h3>
-        <div className="fy-row">
-          <input
-            type="text"
-            value={financialYear}
-            onChange={(e) => setFinancialYear(e.target.value)}
-          />
-          <button onClick={handleSubmit}>✔ OK</button>
-        </div>
+        <AutoSuggestInput
+          label="Financial Year"
+          value={financialYear}
+          onChange={setFinancialYear}
+          apiUrl="https://localhost:44364/api/autosuggest/financialyear"
+          displayKey="year"
+          placeholder="Type financial year"
+        />
+
+        <button className="btn" onClick={handleSubmit}>
+          ✔ Submit
+        </button>
       </div>
     </div>
   );

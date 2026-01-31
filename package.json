@@ -8,10 +8,14 @@
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.13.2",
+    "bootstrap": "^5.3.8",
+    "lodash": "^4.17.21",
     "react": "^19.2.3",
+    "react-autosuggest": "^10.1.0",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.11.0",
     "react-scripts": "5.0.1",
+    "react-select": "^5.10.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
