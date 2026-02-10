@@ -10,6 +10,7 @@ import Division from "./Division";
 import Consignee from "./components/Form/masters/Consignee";
 import AutoSuggestInput from "./AutoSuggestInput";
 import PurchaseReportPage from "./pages/PurchaseReportPage";
+import ExcelPreview from "./pages/ExcelPreview";
 //import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path="components/Form/masters/Consignee" element={<Consignee />} />      
         <Route path="/AutoSuggestInput" element={<AutoSuggestInput />} />
         <Route path="/pages/PurchaseReportPage" element={<PurchaseReportPage />} />
+        <Route path="/pages/ExcelPreview" element={<ExcelPreview />} />
       </Routes>      
     </BrowserRouter>   
     </>
