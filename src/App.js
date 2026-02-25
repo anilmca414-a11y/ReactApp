@@ -11,6 +11,8 @@ import Consignee from "./components/Form/masters/Consignee";
 import AutoSuggestInput from "./AutoSuggestInput";
 import PurchaseReportPage from "./pages/PurchaseReportPage";
 import ExcelPreview from "./pages/ExcelPreview";
+import PreviewPage from "./pages/PreviewPage";
+import PowerBIReport from "./components/PowerBIReport";
 //import "./App.css";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/AutoSuggestInput" element={<AutoSuggestInput />} />
         <Route path="/pages/PurchaseReportPage" element={<PurchaseReportPage />} />
         <Route path="/pages/ExcelPreview" element={<ExcelPreview />} />
+        <Route path="/pages/PreviewPage" element={<PreviewPage />} />
+        <Route path="/components/PowerBIReport" element={<PowerBIReport />} />
       </Routes>      
     </BrowserRouter>   
     </>
